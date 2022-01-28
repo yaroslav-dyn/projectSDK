@@ -20,3 +20,18 @@ export const triggerClass = function (element, className) {
 };
 
 export const isMobile = window.matchMedia('(max-width: 991.97px)').matches;
+
+
+
+// const getQueryElement = function (element) {
+// const ele =  document.querySelector(element);
+// 	ele.triggerClass = function (className) {
+//         console.log(className)
+//   if(ele && className) {
+//     ele.classList.contains(className) ?
+//       ele.classList.remove(className) :
+//       ele.classList.add(className);
+//   }
+// }
+// return ele;
+// };
