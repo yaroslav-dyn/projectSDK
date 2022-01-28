@@ -1,0 +1,36 @@
+# dependencies
+node_modules
+
+# production
+build
+dist
+
+# misc
+.DS_Store
+.dependabot
+npm-debug.log
+yarn-error.log
+yarn.lock
+.yarnclean
+.vscode
+
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+*.js.map
+

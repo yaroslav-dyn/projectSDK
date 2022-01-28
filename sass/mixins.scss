@@ -1,0 +1,81 @@
+$device-phone: 575.98px;
+$device-tablet: 767.98px;
+$device-mobile-max: 991.97px;
+$device-desktop: 991.98px;
+
+//reset links styles
+@mixin reset-link($color) {
+  color: $color;
+  text-decoration: none;
+  outline: none;
+  &:hover, &:active, &:focus, &:visited {color: $color}
+}
+
+
+// Rewrite style only portable devices
+@mixin rewrite-mobile {
+  @media all and (max-width: $device-mobile-max) {
+    @content
+  }
+}
+
+// Rewrite style only desktop
+@mixin rewrite-desktop {
+  @media all and (min-width: $device-desktop) {
+    @content
+  }
+}
+
+//Get the value for justify-content
+@function getJustify($arg) {
+  $justify: (
+      "sa": space-around,
+      "sb": space-between,
+      "se": space-evenly,
+      "c": center,
+      "fs": flex-start,
+      "fe": flex-end,
+  );
+
+  @each $key, $value in $justify {
+    @if ($key == $arg) {
+      @return $value;
+    }
+  }
+}
+
+//Get the value for align-items
+@function getAlign($arg) {
+  $align: (
+      "b": baseline,
+      "s": stretch,
+      "c": center,
+      "fs": flex-start,
+      "fe": flex-end,
+  );
+
+  @each $key, $value in $align {
+    @if ($key == $arg) {
+      @return $value;
+    }
+  }
+}
+
+//Display flex
+@mixin d-flex() {
+  display: flex;
+  &:not(.constant-dir) {
+    @media all and (max-width: $device-tablet) {
+      flex-direction: column;
+    }
+  }
+  @content;
+}
+
+@mixin d-i-flex() {
+  display: inline-flex;
+  @media all and (max-width: $device-tablet) {
+    flex-direction: column;
+  }
+  @content;
+}
